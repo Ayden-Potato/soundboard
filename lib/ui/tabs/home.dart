@@ -9,6 +9,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isplaying = false;
+  final player = AudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     var images = [
@@ -17,11 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
             'https://i.ebayimg.com/images/g/rQ8AAOSws3phwv80/s-l1600.png'),
         child: InkWell(
           onTap: () async {
-            print(':heart_eyes:');
-            final player = AudioPlayer(); // Create a player
-            await player.setAsset(// Load a URL
-                'style.mp3'); // Schemes: (https: | file: | asset: )
-            player.play();
+            if (isplaying) {
+              await player.stop();
+              setState(() {
+                isplaying = false;                                               
+              });   
+            } else {
+              print(':heart_eyes:');
+              await player.setAsset(// Load a URL
+                  'style.mp3'); // Schemes: (https: | file: | asset: )
+              await player.setSpeed(5.0); 
+              player.play();
+              setState(() {
+                isplaying = true;                                               
+              });              
+            }
           },
         ),
       ),
@@ -30,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('spongebob');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -43,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('peaches are extra ripe thsi year mmmmmmm');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -56,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('USA!!!');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -69,7 +79,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('Im a Banana!');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -82,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('Annoying orange is a nightmare');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -95,7 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('I used to be this');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -108,7 +115,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -121,7 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('OOOOOOOOOOOOOOOOOOOOOOOOA');
-            final player = AudioPlayer(); // Create a player
             await player.setAsset(// Load a URL
                 'EMU.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -134,7 +139,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('Is your jaw ok?, Ayden DID NOT DRAW THIS');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://pub-7de58e77bbdc477680e9cd9b28c977e3.r2.dev/Metal%20Pipes%20Falling%20Sound.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
@@ -147,7 +151,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('sad violin theme');
-            final player = AudioPlayer(); // Create a player
             await player.setUrl(// Load a URL
                 'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
