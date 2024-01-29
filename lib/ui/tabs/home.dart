@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
               print(':heart_eyes:');
               await player.setAsset(// Load a URL
                   'style.mp3'); // Schemes: (https: | file: | asset: )
-              await player.setSpeed(5.0); 
+              //await player.setSpeed(5.0); 
               player.play();
               setState(() {
                 isplaying = true;                                               
@@ -55,8 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: InkWell(
           onTap: () async {
             print('peaches are extra ripe thsi year mmmmmmm');
-            await player.setUrl(// Load a URL
-                'https://samplelib.com/lib/preview/mp3/sample-3s.mp3'); // Schemes: (https: | file: | asset: )
+            await player.setAsset(// Load a URL
+                'Dimension.mp3'); // Schemes: (https: | file: | asset: )
             player.play();
           },
         ),
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'https://64.media.tumblr.com/c971848e88b848404fbaa7ffe165139d/520514081478ab09-11/s1280x1920/46d81fef21acd1fca90a350138cec99ec5a20697.png'),
         child: InkWell(
           onTap: () async {
-            print('Is your jaw ok?, Ayden DID NOT DRAW THIS');
+            print('Is your jaw ok?, SHE DID NOT DRAW THIS');
             await player.setUrl(// Load a URL
                 'https://pub-7de58e77bbdc477680e9cd9b28c977e3.r2.dev/Metal%20Pipes%20Falling%20Sound.mp3'); // Schemes: (https: | file: | asset: )
             player.play();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soundboard/ui/new_recording.dart';
 import 'package:soundboard/ui/tabs/faq.dart';
 import 'package:soundboard/ui/tabs/home.dart';
 import 'package:soundboard/ui/tabs/settings.dart';
@@ -79,6 +80,16 @@ class _DashboardPageState extends State<DashboardPage>
             ),
           ],
         ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewRecording()),
+          );
+        },
       ),
     );
   }
